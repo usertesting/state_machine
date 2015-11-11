@@ -637,11 +637,7 @@ module StateMachine
       # attribute
       initial_state = states.detect {|state| state.initial}
       if !owner_class_attribute_default.nil? && (dynamic_initial_state? || !owner_class_attribute_default_matches?(initial_state))
-        warn(
-          "Both #{owner_class.name} and its #{name.inspect} machine have defined "\
-          "a different default for \"#{attribute}\". Use only one or the other for "\
-          "defining defaults to avoid unexpected behaviors."
-        )
+        # Annoy the user.
       end
     end
       
